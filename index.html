@@ -5,8 +5,22 @@
     <title>CC</title>
     <SCRIPT TYPE="TEXT/JAVASCRIPT">
       var xTurn = true;
+      var computerTurn = false;
       var gameOver = false;
       var numMoves = 0;
+      function makeComputerMove(){
+        const board = new Map();
+        var isComputer = true;
+        for(var x = 0; x < 3; x++)
+        {
+          for(var y = 0; y < 3; y++)
+          {
+             board.set(x + '_' + y,document.getElementById(x + '_' + y).value;
+          }
+        }
+        var move = minimax(board, isComputer);
+        document.getElementById(move).value = "O";
+      }
       function checkWin()
       {
        var status = document.getElementById('status');
