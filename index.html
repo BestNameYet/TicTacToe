@@ -4,17 +4,21 @@
     <meta charset="utf-8">
     <title>CC</title>
     <SCRIPT TYPE="TEXT/JAVASCRIPT">
+      var xTurn = true;
+      var status = document.getElementById('status');
       function squareclicked(square){
          var value = square.value;
          if(value != 'X' && value != 'O'){
-           if(xTurn){
-              square.value = 'X';
-              xTurn = false;
-           }
-           else{
-                 square.value = 'O';
-                 xTurn = true;
-           }
+          if(xTurn){
+            square.value = 'X';
+            xTurn = false;
+            status.innerHTML = 'O\'s turn';
+          }
+          else{
+            square.value = 'O';
+            xTurn = true;
+            status.innerHTML = 'X\'s turn';
+          }
          }
          else{
            alert('That square has already been played.');
@@ -35,5 +39,6 @@
     <INPUT TYPE="BUTTON" ID="1_2" VALUE="   " ONCLICK="squareclicked(this);">
     <INPUT TYPE="BUTTON" ID="2_2" VALUE="   " ONCLICK="squareclicked(this);">
     <BR>
+    <P ID="status">X's turn</P>
   </body>
 </html>
