@@ -6,30 +6,32 @@ const PlayerEnum = {
 
 class GameController{
   constructor(){
-    //[1,2,3],[4,8,12],[16,32,48],[64,128,192],[256,512,768], etc.
+    //[1,2,3],[4,8,12],[16,32,48],
+    //[64,128,192],[256,512,768], etc.
+    //value = 2^(2*location)+(1+player.type)
     this.winningIDs = [];
     //horizontal human wins
-    this.winningIDs.push(2*(Math.pow(2,0)+Math.pow(2,1)+Math.pow(2,2)));
-    this.winningIDs.push(2*(Math.pow(2,3)+Math.pow(2,4)+Math.pow(2,5)));
-    this.winningIDs.push(2*(Math.pow(2,5)+Math.pow(2,7)+Math.pow(2,8)));
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,0)+Math.pow(2,2)+Math.pow(2,4))); // 42
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,6)+Math.pow(2,8)+Math.pow(2,10))); // 2688
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,12)+Math.pow(2,14)+Math.pow(2,16))); // 172032
     //horizontal computer wins
-    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,1)*(1+2)+Math.pow(2,2)*(1+2));
-    this.winningIDs.push(Math.pow(2,3)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,5)*(1+2));
-    this.winningIDs.push(Math.pow(2,5)*(1+2)+Math.pow(2,7)*(1+2)+Math.pow(2,8)*(1+2));
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,0)+Math.pow(2,2)+Math.pow(2,4))); // 63
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,6)+Math.pow(2,8)+Math.pow(2,10))); // 3843
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,12)+Math.pow(2,14)+Math.pow(2,16))); //2 45763
     //vertical human wins
-    this.winningIDs.push(Math.pow(2,0)*(1+1)+Math.pow(2,3)*(1+1)+Math.pow(2,6)*(1+1));
-    this.winningIDs.push(Math.pow(2,1)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,7)*(1+1));
-    this.winningIDs.push(Math.pow(2,2)*(1+1)+Math.pow(2,5)*(1+1)+Math.pow(2,8)*(1+1));
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,0)+Math.pow(2,6)+Math.pow(2,12))); // 8322
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,2)+Math.pow(2,8)+Math.pow(2,14))); // 33288
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,4)+Math.pow(2,10)+Math.pow(2,16)));// 133152
     //vertical computer wins
-    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,3)*(1+2)+Math.pow(2,6)*(1+2));
-    this.winningIDs.push(Math.pow(2,1)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,7)*(1+2));
-    this.winningIDs.push(Math.pow(2,2)*(1+2)+Math.pow(2,5)*(1+2)+Math.pow(2,8)*(1+2));
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,0)+Math.pow(2,6)+Math.pow(2,12))); // 12483
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,2)+Math.pow(2,8)+Math.pow(2,14))); // 49923
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,4)+Math.pow(2,10)+Math.pow(2,16))); // 199683
     //diagonal human wins
-    this.winningIDs.push(Math.pow(2,0)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,8)*(1+1));
-    this.winningIDs.push(Math.pow(2,2)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,6)*(1+1));
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,0)+Math.pow(2,8)+Math.pow(2,16))); // 131586
+    this.winningIDs.push(PlayerEnum.HUMAN*(Math.pow(2,4)+Math.pow(2,8)+Math.pow(2,12))); // 8736
     //diagonal computer wins
-    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,8)*(1+2));
-    this.winningIDs.push(Math.pow(2,2)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,6)*(1+2));
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,0)+Math.pow(2,8)+Math.pow(2,16))); // 197379
+    this.winningIDs.push(PlayerEnum.COMPUTER*(Math.pow(2,4)+Math.pow(2,8)+Math.pow(2,12))); // 13104
   }
   isWinner(board){
     let id = board.id;
