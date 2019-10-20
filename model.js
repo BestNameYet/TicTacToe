@@ -1,3 +1,5 @@
+
+
 window.player = {
   isHuman: true,
   symbol: 1,
