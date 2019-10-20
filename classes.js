@@ -1,28 +1,46 @@
+const PlayerEnum = {
+  NULL: 0,
+  HUMAN: 1,
+  COMPUTER: 2
+};
+
 class Player{
   constructor(type){
-    //Business logic: allowable types are 1 = human, -1 = computer, 0 = null.
     this.type = type
   }
 }
 
 class Board{
-  constructor(){
-    this.board = []
-    for(var i = 0; i < 9; i++){
-      board.push(new Player(0));
+  constructor(positions = newGamePositions()){
+    this.positions = positions;
+    this.id = calcID();
+  }
+  calcID(){
+    var id = 0;
+    //[1,2,3],[4,8,12],[16,32,48],[64,128,192],[256,512,768], etc.
+    this.positions.forEach(function(value, index, arr){
+      id = id + Math.pow(2,index)*(1+value.type);
+    });
+    return id;
+  }
+  newGamePositions(){
+    var positions = []
+    for(let i = 0; i < 9; i++){
+      positions.push(new Player(PlayerEnum.NULL));
     }
+    return positions;
   }
   move(location, player){
-    //Business logic: allowable locations are 0 through 8.
-    let type = board[location].type;
-    //Check if location contains a player of type 0--is it a valid location.
-    //Returns true for a valid move, and false otherwise.
-    if(type == 0){
-      board[location] = player;
-      return true;
+    
+    let type = this.positions[location].type;
+    
+    if(type == PlayerEnum.NULL){
+      nextPositions = Array.from(this.positions);
+      nextPositions[location] = player;
+      return new Board(nextPositions);
     }
     else
-      return false;
+      return this;
   }
   get isWinner(){
     let sumOfRow0 = board[0].type + board[1].type + board[2].type;
@@ -43,6 +61,10 @@ class Board{
     winConditions.push(sumOfCol2);
     winConditions.push(sumOfDiag0);
     winConditions.push(sumOfDiag1);
+    
+    winConditions.forEach(function(value, index, arr){
+      arr[index] = Math.abs(value);
+    });
     
     return winConditions.includes(3);
    }
