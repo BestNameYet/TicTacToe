@@ -25,6 +25,20 @@
          alert('That square has already been played.');
        }
       }
+      function newgame(){
+        var status = document.getElementById('status');
+
+        xTurn = true;
+        status.innerHTML = 'X\'s turn';
+
+        for(var x = 0; x < 3; x++)
+        {
+          for(var y = 0; y < 3; y++)
+          {
+             document.getElementById(x + '_' + y).value = ' ';
+          }
+        }
+      }
     </SCRIPT>
   </head>
   <body>
@@ -41,5 +55,6 @@
     <INPUT TYPE="BUTTON" ID="2_2" VALUE="   " ONCLICK="squareclicked(this);">
     <BR>
     <P ID="status">X's turn</P>
+    <INPUT TYPE="BUTTON" ID="NEWGAME" VALUE="New Game" ONCLICK="newgame();">
   </body>
 </html>
