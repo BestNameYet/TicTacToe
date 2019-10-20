@@ -2,11 +2,11 @@ window.player = {
   isHuman: true,
   symbol: 'X',
   switch: function(){
-    this.isHuman = !isHuman
-    if(isHuman){
-      symbol = 'X';
+    this.isHuman = !this.isHuman
+    if(this.isHuman){
+      this.symbol = 'X';
     }
     else
-      symbol = 'Y';
+      this.symbol = 'Y';
   } 
 }
