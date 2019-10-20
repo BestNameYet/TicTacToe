@@ -3,19 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>CC</title>
+    <SCRIPT TYPE="TEXT/JAVASCRIPT">
+      function squareclicked(square){
+         var value = square.value;
+         if(value != 'X' && value != 'O'){
+           if(xTurn){
+              square.value = 'X';
+              xTurn = false;
+           }
+           else{
+                 square.value = 'O';
+                 xTurn = true;
+           }
+         }
+         else{
+           alert('That square has already been played.');
+         }
+       }
+    </SCRIPT>
   </head>
   <body>
-    <INPUT TYPE="BUTTON" ID="0_0" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="1_0" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="2_0" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
+    <INPUT TYPE="BUTTON" ID="0_0" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="1_0" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="2_0" VALUE="   " ONCLICK="squareclicked(this);">
     <BR>
-    <INPUT TYPE="BUTTON" ID="0_1" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="1_1" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="2_1" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
+    <INPUT TYPE="BUTTON" ID="0_1" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="1_1" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="2_1" VALUE="   " ONCLICK="squareclicked(this);">
     <BR>
-    <INPUT TYPE="BUTTON" ID="0_2" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="1_2" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
-    <INPUT TYPE="BUTTON" ID="2_2" VALUE="   " ONCLICK="alert('Hi, you clicked me!');">
+    <INPUT TYPE="BUTTON" ID="0_2" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="1_2" VALUE="   " ONCLICK="squareclicked(this);">
+    <INPUT TYPE="BUTTON" ID="2_2" VALUE="   " ONCLICK="squareclicked(this);">
     <BR>
   </body>
 </html>
