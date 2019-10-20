@@ -13,18 +13,9 @@ class Player{
 class Board{
   constructor(positions = newGamePositions()){
     this.positions = positions;
-    this.id = calcID();
-  }
-  calcID(){
-    var id = 0;
-    //[1,2,3],[4,8,12],[16,32,48],[64,128,192],[256,512,768], etc.
-    this.positions.forEach(function(value, index, arr){
-      id = id + Math.pow(2,index)*(1+value.type);
-    });
-    return id;
   }
   newGamePositions(){
-    var positions = []
+    var positions = [];
     for(let i = 0; i < 9; i++){
       positions.push(new Player(PlayerEnum.NULL));
     }
@@ -40,7 +31,16 @@ class Board{
       return new Board(nextPositions);
     }
     else
-      return this;
+      return false;
+  }
+  
+  get id(){
+    var id = 0;
+    //[1,2,3],[4,8,12],[16,32,48],[64,128,192],[256,512,768], etc.
+    positions.forEach(function(value, index, arr){
+      id = id + Math.pow(2,index)*(1+value.type);
+    });
+    return id;
   }
   get isWinner(){
     let sumOfRow0 = board[0].type + board[1].type + board[2].type;
