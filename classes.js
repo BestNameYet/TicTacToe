@@ -4,6 +4,39 @@ const PlayerEnum = {
   COMPUTER: 2
 };
 
+class GameController{
+  constructor(){
+    //[1,2,3],[4,8,12],[16,32,48],[64,128,192],[256,512,768], etc.
+    this.winningIDs = [];
+    //horizontal human wins
+    this.winningIDs.push(2*(Math.pow(2,0)+Math.pow(2,1)+Math.pow(2,2)));
+    this.winningIDs.push(2*(Math.pow(2,3)+Math.pow(2,4)+Math.pow(2,5)));
+    this.winningIDs.push(2*(Math.pow(2,5)+Math.pow(2,7)+Math.pow(2,8)));
+    //horizontal computer wins
+    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,1)*(1+2)+Math.pow(2,2)*(1+2));
+    this.winningIDs.push(Math.pow(2,3)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,5)*(1+2));
+    this.winningIDs.push(Math.pow(2,5)*(1+2)+Math.pow(2,7)*(1+2)+Math.pow(2,8)*(1+2));
+    //vertical human wins
+    this.winningIDs.push(Math.pow(2,0)*(1+1)+Math.pow(2,3)*(1+1)+Math.pow(2,6)*(1+1));
+    this.winningIDs.push(Math.pow(2,1)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,7)*(1+1));
+    this.winningIDs.push(Math.pow(2,2)*(1+1)+Math.pow(2,5)*(1+1)+Math.pow(2,8)*(1+1));
+    //vertical computer wins
+    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,3)*(1+2)+Math.pow(2,6)*(1+2));
+    this.winningIDs.push(Math.pow(2,1)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,7)*(1+2));
+    this.winningIDs.push(Math.pow(2,2)*(1+2)+Math.pow(2,5)*(1+2)+Math.pow(2,8)*(1+2));
+    //diagonal human wins
+    this.winningIDs.push(Math.pow(2,0)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,8)*(1+1));
+    this.winningIDs.push(Math.pow(2,2)*(1+1)+Math.pow(2,4)*(1+1)+Math.pow(2,6)*(1+1));
+    //diagonal computer wins
+    this.winningIDs.push(Math.pow(2,0)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,8)*(1+2));
+    this.winningIDs.push(Math.pow(2,2)*(1+2)+Math.pow(2,4)*(1+2)+Math.pow(2,6)*(1+2));
+  }
+  isWinner(board){
+    let id = board.id;
+    return this.winningIDs.includes(id);
+  }
+}
+
 class Player{
   constructor(type){
     this.type = type
