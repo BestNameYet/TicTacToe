@@ -5,22 +5,13 @@ const PlayerEnum = {
 };
 
 const winners = [
-  PlayerEnum.HUMAN*(Math.pow(3,0)+Math.pow(3,1)+Math.pow(3,2)),
-  PlayerEnum.HUMAN*(Math.pow(3,3)+Math.pow(3,4)+Math.pow(3,5)),
-  PlayerEnum.HUMAN*(Math.pow(3,6)+Math.pow(3,7)+Math.pow(3,8)),
-  PlayerEnum.COMPUTER*(Math.pow(3,0)+Math.pow(3,1)+Math.pow(3,2)),
-  PlayerEnum.COMPUTER*(Math.pow(3,3)+Math.pow(3,4)+Math.pow(3,5)),
-  PlayerEnum.COMPUTER*(Math.pow(3,6)+Math.pow(3,7)+Math.pow(3,8)),
-  PlayerEnum.HUMAN*(Math.pow(3,0)+Math.pow(3,3)+Math.pow(3,6)),
-  PlayerEnum.HUMAN*(Math.pow(3,1)+Math.pow(3,4)+Math.pow(3,7)),
-  PlayerEnum.HUMAN*(Math.pow(3,2)+Math.pow(3,5)+Math.pow(3,8)),
-  PlayerEnum.COMPUTER*(Math.pow(3,0)+Math.pow(3,3)+Math.pow(3,6)),
-  PlayerEnum.COMPUTER*(Math.pow(3,1)+Math.pow(3,4)+Math.pow(3,7)),
-  PlayerEnum.COMPUTER*(Math.pow(3,2)+Math.pow(3,5)+Math.pow(3,8)),
-  PlayerEnum.HUMAN*(Math.pow(3,0)+Math.pow(3,4)+Math.pow(3,8)),
-  PlayerEnum.HUMAN*(Math.pow(3,2)+Math.pow(3,4)+Math.pow(3,6)),
-  PlayerEnum.COMPUTER*(Math.pow(3,0)+Math.pow(3,4)+Math.pow(3,8)),
-  PlayerEnum.COMPUTER*(Math.pow(3,2)+Math.pow(3,4)+Math.pow(3,6))
+  //Base 3 represenations (Javascript is big-endian--left most character has highest value.)
+  000000111, 000111000, 111000000,
+  000000222, 000222000, 222000000,
+  001001001, 010010010, 100100100,
+  002002002, 020020020, 200200200,
+  001010100, 100010001
+  002020200, 200020002
 ];
 
 class GameController{
