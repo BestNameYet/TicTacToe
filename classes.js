@@ -26,10 +26,10 @@ const winners = [
 class GameController{
   constructor(){
   }
-  displayBoard(board){
-    
+  displayBoard(model, view){
+    model.
   }
-  isWinner(board){
+  isWinner(model){
     reutrn winners.includes(board.id);
   }
 }
