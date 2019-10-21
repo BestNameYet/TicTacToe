@@ -26,11 +26,18 @@ const winners = [
 class GameController{
   constructor(){
   }
-  displayBoard(model, view){
-    model.
+  makeMove(position, player){
   }
-  isWinner(model){
-    reutrn winners.includes(board.id);
+  newGame(view){
+  }
+  displayBoard(board, view){
+  }
+  displayCurrentPlayer(player, view){
+  }
+  checkWinner(board){
+    return winners.includes(board.state);
+  }
+  checkDraw(board){
   }
 }
 
@@ -41,17 +48,16 @@ class Player{
 }
 
 class Board{
-  constructor(id = 0, series = [0]){
-    this.id = id;
-    this.series = series;
+  constructor(state = 0){
+    this.state = state;
   }
-  move(location, player){
-    var potentialMove = Math.pow(3,location)*(player.type);
-    if(!this.series.includes(potentialMove)){
-      var id = this.id + potentialMove;
-      var series = Array.from(this.series);
-      series.push(potentialMove);
-      return new Board(id, series);
+  move(position, player){
+    let reps = 9-Number(id).toString(3).length;
+    let base3view = "0".repeat(reps)+Number(state).toString(3);
+    if(base3view.charAt(8-position).valueOf() == "0".valueOf())){
+      let potentialMove = Math.pow(3,position)*(player.type);
+      let newState = this.state + potentialMove;
+      return new Board(newState);
     }
     else
       return false;
