@@ -1,0 +1,40 @@
+var state = parseInt("10111000222", 3);
+const MIN_STATE = Math.pow(3,11);
+const winners = [
+  //Base 3 represenations (Javascript is big-endian--left most character has highest value.)
+  "10000000111", "10000111000", "10111000000",
+  "10001001001", "10010010010", "10100100100",
+  "10001010100", "10100010001",
+  "10000000222", "10000222000", "10222000000",
+  "10002002002", "10020020020", "10200200200",
+  "10002020200", "10200020002"
+];
+var playerType = "1";
+var base3view = state.toString(3);
+console.log(base3view);
+function zeroOpponent(position, index){
+  if(index < 1) return "1";
+  return position != playerType ? "0" : playerType;
+}
+function excludeOpponent(position){
+    return playerType == "2" ? !position.substring(1).includes("1") : !position.includes("2");
+}
+base3view = Array.from(base3view);
+base3view = base3view.map(zeroOpponent);
+console.log(base3view);
+base3view = base3view.join("");
+let decimalview = parseInt(base3view,3);
+let decimalArray = winners.filter(excludeOpponent).map(x => parseInt(x,3)-decimalview);;
+console.log(decimalArray);
+console.log(decimalArray.map(x => x.toString(3)));
+let base3Array = decimalArray.filter(x => x <= 0).map(x => x.toString(3)).filter(excludeOpponent);
+const test = function(item){
+  return Math.abs(item) % 3 == 2;
+}
+const data = {
+  message: base3Array
+}
+
+$('#msg').html(data.message)
+
+console.log(data)
