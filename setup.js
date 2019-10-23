@@ -43,9 +43,28 @@ const board = (function(){
 })();
 
 function minimax(board, player){
+  var opponent = new Player(player.opponentType);
   if(player.getWinner(board)){
-    return 
+    return 1;
   }
+  else if(opponent.getWinner(board){
+    return -1;}
+  var move = -1;
+  var score = -2;
+  for(let i = 0; i<9; i++){
+    if(board[i].type == "blank"){
+      var boardWithNewMove = Array.from(board);
+      boardWithNewMove[i] = player;
+      var scoreWithNewMove = -1*minimax(boardWithNewMove, opponent);
+      if(scoreWithNewMove > score){
+        score = scoreWithNewMove;
+        move = i;
+      }
+    }
+  }
+  if(move == -1){
+  return 0;}
+  return score;
 }
 
 function validMove(board, position){
@@ -114,6 +133,9 @@ class Controller{
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
+         if(this.player.type == "computer"){
+          computerTurn();
+         }
       }
          
       
@@ -121,6 +143,35 @@ class Controller{
    else
       alert('That square has already been played.');
   }
+  
+  computerTurn(){
+    var move = -1;
+    var score = -2;
+    for(let i = 0; i < 9; i++){
+      if(this.boardModel[i].type = "blank"){
+        var boardWithNewMove = Array.from(board);
+        boardWithNewMove[i] = player;
+        minimaxScore = minimax(boardWithNewMove, player);
+        if(minimaxScore > score){
+          score = minimaxScore;
+          move = [i];
+        }
+      }
+    }
+    this.boardModel[i] = this.player;
+    if(this.player.getWinner(board)){
+         this.updateWinnerView();
+         this.gameOver = true;
+      }
+      else if(this.move == 9){
+        this.updateDrawView();
+        this.gameOver = true;
+      }  
+      else {
+         this.updateTurnInfoView();
+         this.player = new Player(this.player.opponentType);
+      }
+    }
 
   updateTurnInfoView(){
      if(this.player.opponentType == "human"){
