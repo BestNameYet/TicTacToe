@@ -92,7 +92,7 @@ class Controller{
    if(valid){
       this.boardModel[position] = this.player;
       this.updateBoardView();
-      if(player.getWinner(board)){
+      if(this.player.getWinner(board)){
          this.updateWinnerView();
       }
       else {
