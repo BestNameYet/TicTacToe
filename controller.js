@@ -1,16 +1,25 @@
-function updateBoardView(board){
-}
+class Controller{
+   
+  constructor(boardModel, boardView, turnView){
+    this.boardModel = boardModel;
+    this.boardView = boardView;
+    this.turnView = turnView;
+  }
 
-function updateBoardModel(view){
-}
+  updateBoardView(){
+  }
 
-function updateTurnInfoView(player){
-}
+  updateBoardModel(){
+  }
 
-function newGameView(){
-}
+  updateTurnInfoView(){
+  }
 
-function newGameModel(){
+  newGameView(){
+  }
+
+  newGameModel(){
+  }
 }
 
 
