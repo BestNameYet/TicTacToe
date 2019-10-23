@@ -134,7 +134,7 @@ class Controller{
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
          if(this.player.type == "computer"){
-          computerTurn();
+          this.computerTurn();
          }
       }
          
@@ -159,6 +159,8 @@ class Controller{
       }
     }
     this.boardModel[i] = this.player;
+    this.move = this.move+1;
+    this.updateBoardView();
     if(this.player.getWinner(board)){
          this.updateWinnerView();
          this.gameOver = true;
