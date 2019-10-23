@@ -13,7 +13,7 @@ class Player{
 }
 
 const board = (function(){
-  var array = []
+  var array = [];
   var player = new Player("blank");
   return array.fill(player);
 })();
