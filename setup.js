@@ -47,7 +47,7 @@ function minimax(board, player){
   if(player.getWinner(board)){
     return 1;
   }
-  else if(opponent.getWinner(board){
+  else if(opponent.getWinner(board)){
     return -1;}
   var move = -1;
   var score = -2;
