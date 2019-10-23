@@ -158,7 +158,7 @@ class Controller{
         }
       }
     }
-    this.boardModel[i] = this.player;
+    this.boardModel[move] = this.player;
     this.move = this.move+1;
     this.updateBoardView();
     if(this.player.getWinner(board)){
