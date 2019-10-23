@@ -54,7 +54,7 @@ const boardView = (function(){
   for(let i = 0; i < 9; i++){
     var id = Number(i).toString();
     var elem = window.document.getElementById(""+id);
-    array.push(elen);
+    array.push(elem);
   }
   return array;
 })();
