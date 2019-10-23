@@ -43,6 +43,9 @@ const board = (function(){
 })();
 
 function minimax(board, player){
+  if(player.getWinner(board)){
+    return 
+  }
 }
 
 function validMove(board, position){
@@ -71,6 +74,7 @@ class Controller{
     this.turnView = turnView;
     this.player = new Player("human");
     this.gameOver = false;
+    this.move = 0;
   }
 
   updateBoardView(){
@@ -92,10 +96,15 @@ class Controller{
     alert("The game is already over.");
     return;
    }
+   if(this.move == 9){
+    this.updateDrawView();
+    this.gameOver = true;
+   }
    let position = Number(choice.id);
    let valid = validMove(this.boardModel, position);
    if(valid){
       this.boardModel[position] = this.player;
+      this.move = move++;
       this.updateBoardView();
       if(this.player.getWinner(board)){
          this.updateWinnerView();
@@ -123,6 +132,10 @@ class Controller{
         this.turnView.innerHTML = "X wins!";
      }
      else this.turnView.innerHTML = "O wins!";
+  }
+  
+  updateDrawView(){
+    this.turnView.innerHTML = "It's a draw!";
   }
 
   newGameView(){
