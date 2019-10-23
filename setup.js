@@ -110,7 +110,7 @@ class Controller{
      if(this.player.opponentType == "human"){
         this.turnView.innerHTML = "X's turn";
      }
-     else turnView.innerHTML = "O's turn";
+     else this.turnView.innerHTML = "O's turn";
   }
   updateWinnerView(){
      if(this.player.type == "human"){
