@@ -12,4 +12,4 @@ class Player{
   }
 }
 
-
+var board = "BBBBBBBBB";
