@@ -105,7 +105,7 @@ class Controller{
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
-         if(this.player.type = "computer"){
+         if(this.player.type == "computer"){
          this.boardView[i].value = "";
          }
          else {
