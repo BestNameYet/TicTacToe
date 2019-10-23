@@ -1,6 +1,10 @@
-const boardView = [document.getElementById('0'),document.getElementById('1'),document.getElementById('2'),
-document.getElementById('3'),document.getElementById('4'),document.getElementById('5'),
-document.getElementById('6'),document.getElementById('7'),document.getElementById('8')];
+const boardView = (function(){
+  var array = [];
+  for(let i = 0; i < 9; i++){
+    array.push(document.getElementById(Number(i).toString));
+  }
+  return array;
+})();
 
 const turnInfoView = document.getElementById('status');
 
