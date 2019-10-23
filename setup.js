@@ -12,7 +12,7 @@ class Player{
   }
   getWinner(board){
     var booleanBoard = board.map(x => {
-      if(x.type !== this.type){
+      if(x.type != this.type){
         return false;
       }
       else return true;
@@ -105,15 +105,13 @@ class Controller{
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
-         if(this.player.type == "computer"){
-         this.boardView[i].value = "";
-         }
-         else {
-           var boardWithNewMove = Array.from(this.boardModel);
+         if(this.player.type != "computer"){
+         var boardWithNewMove = Array.from(this.boardModel);
            boardWithNewMove[i] = this.player;
            let score = -1*minimax(boardWithNewMove, new Player(this.player.opponentType));
            boardView[i].value = Number(score).toString();
          }
+      
      
       }
     }
