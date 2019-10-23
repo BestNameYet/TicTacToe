@@ -38,9 +38,8 @@ class Player{
 }
 
 const board = (function(){
-  var array = [];
   var player = new Player("blank");
-  return array.fill(player, 0, 8);
+  return Array(9).fill(player);
 })();
 
 function minimax(board, player){
