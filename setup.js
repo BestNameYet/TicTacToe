@@ -96,10 +96,7 @@ class Controller{
     alert("The game is already over.");
     return;
    }
-   if(this.move == 9){
-    this.updateDrawView();
-    this.gameOver = true;
-   }
+   
    let position = Number(choice.id);
    let valid = validMove(this.boardModel, position);
    if(valid){
@@ -110,6 +107,10 @@ class Controller{
          this.updateWinnerView();
          this.gameOver = true;
       }
+      else if(this.move == 9){
+        this.updateDrawView();
+        this.gameOver = true;
+      }  
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
