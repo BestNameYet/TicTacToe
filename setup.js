@@ -53,15 +53,15 @@ const boardView = (function(){
   var array = [];
   for(let i = 0; i < 9; i++){
     let id = Number(i).toString();
-    console.log("Some id: "+id);
-    array.push(document.getElementById(id));
+    //console.log("Some id: "+id);
+    array.push(window.document.getElementById(""+id));
   }
   return array;
 })();
 
-const turnInfoView = document.getElementById('status');
+const turnInfoView = window.document.getElementById('status');
 
-const newGameButtonView = document.getElementById('newGame');
+const newGameButtonView = window.document.getElementById('newGame');
 
 class Controller{
    
