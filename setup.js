@@ -52,9 +52,9 @@ function validMove(board, position){
 const boardView = (function(){
   var array = [];
   for(let i = 0; i < 9; i++){
-    let id = Number(i).toString();
-    //console.log("Some id: "+id);
-    array.push(window.document.getElementById(""+id));
+    var id = Number(i).toString();
+    var elem = window.document.getElementById(""+id);
+    array.push(elen);
   }
   return array;
 })();
