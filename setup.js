@@ -154,7 +154,7 @@ class Controller{
         minimaxScore = minimax(boardWithNewMove, this.player);
         if(minimaxScore > score){
           score = minimaxScore;
-          move = [i];
+          move = i;
         }
       }
     }
