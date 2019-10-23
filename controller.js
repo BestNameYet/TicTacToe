@@ -23,7 +23,7 @@ class Controller{
 
   updateBoardModel(choice){
    let position = Number(choice.id);
-   let valid = validMove(this.boardModel);
+   let valid = validMove(this.boardModel, position);
    if(valid){
       this.boardModel[position] = this.player;
       this.updateBoardView();
