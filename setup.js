@@ -52,7 +52,8 @@ function validMove(board, position){
 const boardView = (function(){
   var array = [];
   for(let i = 0; i < 9; i++){
-    let id = Number(i).toString()
+    let id = Number(i).toString();
+    console.log("Some id: "+id);
     array.push(document.getElementById(id));
   }
   return array;
