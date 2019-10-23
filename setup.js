@@ -105,12 +105,12 @@ class Controller{
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
-         if(this.player.type != "computer"){
+         
          var boardWithNewMove = Array.from(this.boardModel);
            boardWithNewMove[i] = this.player;
            let score = -1*minimax(boardWithNewMove, new Player(this.player.opponentType));
            boardView[i].value = Number(score).toString();
-         }
+         
       
      
       }
