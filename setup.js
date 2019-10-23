@@ -101,7 +101,7 @@ class Controller{
    let valid = validMove(this.boardModel, position);
    if(valid){
       this.boardModel[position] = this.player;
-      this.move = this.move++;
+      this.move = this.move+1;
       this.updateBoardView();
       if(this.player.getWinner(board)){
          this.updateWinnerView();
