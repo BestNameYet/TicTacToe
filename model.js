@@ -46,7 +46,7 @@ const board = (function(){
 function minimax(board, player){
 }
 
-function validMove(board){
- return board[i].type == "blank";
+function validMove(board, position){
+ return board[position].type == "blank";
 }
 
