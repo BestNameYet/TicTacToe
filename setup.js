@@ -105,7 +105,10 @@ class Controller{
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
+         if(this.player.type = "computer"){
          this.boardView[i].value = "";
+         }
+         else this.boardView[i].value = -1*minimax((()=>{let boardWithNewMove = Array.from(this.boardModel); boardWithNewMove[i]=this.player; return boardWithNewMove})();, new Player(this.player.opponentType));
       }
     }
   }
