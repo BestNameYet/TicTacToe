@@ -90,6 +90,7 @@ class Controller{
   updateBoardModel(choice){
    if(this.gameOver){
     alert("The game is already over.");
+    return;
    }
    let position = Number(choice.id);
    let valid = validMove(this.boardModel, position);
