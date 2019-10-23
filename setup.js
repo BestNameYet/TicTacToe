@@ -17,12 +17,12 @@ class Player{
       }
       else return true;
     });
-    for(i = 0; i<9; i=i+3){
+    for(let i = 0; i<9; i=i+3){
       if(booleanBoard[i] && booleanBoard[i+1] && booleanBoard[i+2]){
         return true;
       }
     }
-    for(i = 0; i<3; i++){
+    for(let i = 0; i<3; i++){
       if(booleanBoard[i] && booleanBoard[i+3] && booleanBoard[i+6]){
         return true;
       }
