@@ -1,19 +1,15 @@
-
-
-window.player = {
-  isHuman: true,
-  symbol: 1,
-  switch: function(){
-    this.isHuman = !this.isHuman
-    if(this.isHuman){
-      this.symbol = -1;
+class Player{
+  constructor(type){
+    this.type = type;
+    if(type == "human"){
+      this.opponentType = "computer";
+    }
+    if(type == "computer"){
+      this.opponentType = "human";
     }
     else
-      this.symbol = 1;
-  } 
+      this.opponentType = null;
+  }
 }
 
-window.board = new Map();
-for(var i = 0; i < 10; i++){
-  board.set(i, 0);
-}
+
