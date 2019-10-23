@@ -146,6 +146,7 @@ class Controller{
   
   newGame(){
     this.gameOver = false;
+    this.move = 0;
     this.player = new Player("human");
     this.newGameModel();
     this.newGameView();
