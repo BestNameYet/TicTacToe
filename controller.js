@@ -1,6 +1,3 @@
-function getWinner(board){
-}
-
 function updateBoardView(board){
 }
 
@@ -13,7 +10,6 @@ function newGameView(){
 function newGameModel(){
 }
 
-function minimax(board, player){
-}
+
                        
                    
