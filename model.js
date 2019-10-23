@@ -10,38 +10,31 @@ class Player{
     else
       this.opponentType = null;
   }
-  
   getWinner(board){
-    var blank = new Player("blank");
-    var clearedBoard = board.map(x => {
-      if(x.type == this.opponentType){
-        return blank;
-      }
-    });
-    var booleanBoard = clearedBoard.mapx => {
-      if(x.type == "blank"){
+    var booleanBoard = board.map(x => {
+      if(x.type !== this.type){
         return false;
       }
-      else true;
+      else return true;
     });
     for(i = 0; i<9; i=i+3){
       if(booleanBoard[i] && booleanBoard[i+1] && booleanBoard[i+2]){
         return true;
       }
-     for(i = 0; i<3; i++){
+    }
+    for(i = 0; i<3; i++){
       if(booleanBoard[i] && booleanBoard[i+3] && booleanBoard[i+6]){
         return true;
-     }
-      if(booleanBoard[9] && booleanBoard[4] && booleanBoard[0]){
-        return true;
-     }
-       if(booleanBoard[6] && booleanBoard[4] && booleanBoard[2]){
-        return true;
-     }
+      }
     }
-    
-  }
-  
+    if(booleanBoard[8] && booleanBoard[4] && booleanBoard[0]){
+      return true;
+    }
+    if(booleanBoard[6] && booleanBoard[4] && booleanBoard[2]){
+      return true;
+    }
+    return false;
+  } 
 }
 
 const board = (function(){
