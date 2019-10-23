@@ -1,10 +1,10 @@
 class Player{
   constructor(type){
     this.type = type;
-    if(type == "human"){
+    if(this.type == "human"){
       this.opponentType = "computer";
     }
-    if(type == "computer"){
+    else if(this.type == "computer"){
       this.opponentType = "human";
     }
     else
