@@ -149,7 +149,7 @@ class Controller{
     var score = -2;
     for(let i = 0; i < 9; i++){
       if(this.boardModel[i].type = "blank"){
-        var boardWithNewMove = Array.from(board);
+        var boardWithNewMove = Array.from(this.boardModel);
         boardWithNewMove[i] = player;
         minimaxScore = minimax(boardWithNewMove, player);
         if(minimaxScore > score){
