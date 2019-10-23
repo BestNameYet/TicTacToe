@@ -70,6 +70,7 @@ class Controller{
     this.boardView = boardView;
     this.turnView = turnView;
     this.player = new Player("human");
+    this.gameOver = false;
   }
 
   updateBoardView(){
@@ -87,6 +88,9 @@ class Controller{
   }
 
   updateBoardModel(choice){
+   if(this.gameOver){
+    alert("The game is already over.");
+   }
    let position = Number(choice.id);
    let valid = validMove(this.boardModel, position);
    if(valid){
@@ -94,6 +98,7 @@ class Controller{
       this.updateBoardView();
       if(this.player.getWinner(board)){
          this.updateWinnerView();
+         this.gameOver = true;
       }
       else {
          this.updateTurnInfoView();
