@@ -126,9 +126,19 @@ class Controller{
   }
 
   newGameView(){
+    this.updateBoardView();
+    this.turnView.innerHTML = "X's turn";
+  }
+  
+  newGame(){
+    this.gameOver = false;
+    this.player = new Player("human");
+    this.newGameModel();
+    this.newGameView();
   }
 
   newGameModel(){
+    this.boardModel.fill(new Player("blank"));
   }
 }
 
