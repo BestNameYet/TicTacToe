@@ -12,4 +12,9 @@ class Player{
   }
 }
 
-var board = "BBBBBBBBB";
+const board = (function(){
+  var array = []
+  var player = new Player("blank");
+  return array.fill(player);
+})();
+
