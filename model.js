@@ -106,11 +106,11 @@ class TTTModel{
 }
 
 class Player{
-  type;
-  name;
-  mark;
+  type = null;
+  name = "";
+  mark = "";
   
-  constructor(type = null, name = "", marking){
+  constructor(type, name, mark){
     this.type = type;
     this.name = name;
     this.mark = mark;
