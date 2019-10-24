@@ -203,7 +203,7 @@ class Controller{
     this.turnView.style.fontSize = "x-large";
     this.turnView.style.fontWeight="bold";
     this.turnView.style.color = "black";
-     if(this.player == "human"){
+     if(this.player.type == "human"){
        this.turnView.innerHTML = "X's turn";
      }
      else this.turnView.innerHTML = "O's turn";
