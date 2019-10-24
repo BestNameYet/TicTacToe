@@ -49,7 +49,7 @@ function minimax(board, player){
   }
   else if(opponent.getWinner(board)){
     return -1;}
-  var move = -1;
+  var ] = -1;
   var score = -2;
   for(let i = 0; i<9; i++){
     if(board[i].type == "blank"){
@@ -205,9 +205,9 @@ class Controller{
     this.turnView.style.color = "black";
     
      if(this.player.type == "human"){
-       this.turnView.innerHTML = "Move: " + move;
+       this.turnView.innerHTML = "Move: " + this.move;
      }
-     else this.turnView.innerHTML = "Move: " + move;
+     else this.turnView.innerHTML = "Move: " + this.move;
   }
   updateWinnerView(){
      if(this.player.type == "human"){
