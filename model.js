@@ -1,25 +1,16 @@
 class TTTModel{
   
-  xPlayer;
-  oPlayer;
-  board;
-  moveStack;
-  moveCounter;
-  isPaused;
-  isGameOver;
-  hasWon;
-  hasDraw;
+  xPlayer = new Player();
+  oPlayer = new Player();
+  board  = new Board();
+  moveStack = [];
+  moveCounter = 0;
+  isPaused = true;
+  isGameOver = false;
+  hasWon = false;
+  hasDraw = false;
     
   constructor(){
-    this.xPlayer = new Player();
-    this.oPlayer = new Player();
-    this.board = new Board();
-    this.moveStack = [];
-    this.moveCounter = 0;
-    this.isPaused = true;
-    this.isGameOver = false;
-    this.hasWin = false;
-    this.hasDraw = false;
   }
   
   
