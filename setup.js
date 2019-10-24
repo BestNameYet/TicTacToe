@@ -100,13 +100,13 @@ class Controller{
   updateBoardView(){
    for(let i = 0; i<this.boardModel.length; i++){
       if(this.boardModel[i].type == "human"){
-         this.boardView[i].style.fontSize = "xx-large";
+         this.boardView[i].style.fontSize = "50vw";
          this.boardView[i].style.fontWeight="bold";
         this.boardView[i].style.color = "black";
          this.boardView[i].innerHTML = "X";
       }
       else if(this.boardModel[i].type == "computer"){
-         this.boardView[i].style.fontSize = "xx-large";
+         this.boardView[i].style.fontSize = "50vw";
          this.boardView[i].style.fontWeight="bold";
           this.boardView[i].style.color = "black";
          this.boardView[i].innerHTML = "O";
@@ -116,7 +116,7 @@ class Controller{
          var boardWithNewMove = Array.from(this.boardModel);
            boardWithNewMove[i] = this.player;
            let score = -minimax(boardWithNewMove, new Player(this.player.opponentType));
-           this.boardView[i].style.fontSize = "medium";
+           this.boardView[i].style.fontSize = "25vw";
            this.boardView[i].style.fontWeight="normal";
            this.boardView[i].style.color = "black";
            if(score<0){
