@@ -2,7 +2,7 @@ class TTTModel{
   
   xPlayer = new Player();
   oPlayer = new Player();
-  whoWaititng = null;
+  whoWaiting = null;
   whoPlaying = null;
   board  = new Board();
   moveStack = [];
@@ -20,27 +20,42 @@ class TTTModel{
   
   makeMove(positionNumber){
     if(this.isValidMove(positionNumber)){
-      this.
+      this.board.position(positionNumber,whoPlaying);
+      return true;
     }
+    else return false;
   }
   
   undoLastMove(){
+    this.pauseMath();
+    let prevState = this.moveStack.pop();
+    this.whoWaiting = prevState.waiting;
+    this.whoPlaying = prevState.playing;
+    this.board = prevState.board;
+    this.moveCount--;
   }
   
   resetMatch(){
   }
 
   switchPlayers(){
+    let temp = this.whoPlaying;
+    this.whoPlaying = this.whoWaiting;
+    this.whoWaiting = temp;
+    return true;
   }
   
   unpauseMatch(){
+    this.isPaused = false;
   }
   
   pauseMatch(){
+    this.isPaused = true;
   }
     
   get positions(){
-    
+    let positions = this.board.positions.map(player=>player.info);
+    return JSON.stringify(positions);
   }
   
   set position(positionNumber){
@@ -64,7 +79,18 @@ class TTTModel{
   }
   
   get moveMinimaxScore(positionNumber){
+    if(this.isValidMove(positionNumber)){
+      let boardWithNewMove = Array.of(this.board.positions);
+      boardWithNewMove.position(positionNumber, this.whoPlaying);
+      return minimaxScore(boardWithNewMove, this.whoPlaying, this.whoWaiting);
+    }
   }
+
+  minimaxScore(board, decider, opponent){
+    
+  }
+  
+  checkFor
   
   get hasGameOver(){
     return this.isGameOver;
@@ -123,7 +149,7 @@ class TTTModel{
   
   get whoPlayingMark(){
     if(this.whoPlaying != null){
-      return this.whoPlaying.maek.toUpperCase();
+      return this.whoPlaying.mark.toUpperCase();
     }
     else return false;
   }
@@ -229,6 +255,7 @@ class Player{
     }
 
     get positions(){
+      return this.positions;
     }
 
     resetBoard(){
