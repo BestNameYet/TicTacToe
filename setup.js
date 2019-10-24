@@ -205,9 +205,9 @@ class Controller{
     this.turnView.style.color = "black";
     
      if(this.player.type == "human"){
-       this.turnView.innerHTML = "Move: " + this.move;
+       this.turnView.innerHTML = "Minimax Tic-Tac-Toe";
      }
-     else this.turnView.innerHTML = "Move: " + this.move;
+     //else this.turnView.innerHTML = "Minimax Tic-Tac-Toe";
   }
   updateWinnerView(){
      if(this.player.type == "human"){
