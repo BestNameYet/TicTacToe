@@ -103,13 +103,13 @@ class Controller{
          this.boardView[i].style.fontSize = "large";
          this.boardView[i].style.fontWeight="bold";
         this.boardView[i].style.color = "black";
-         this.boardView[i].value = "X";
+         this.boardView[i].innerHTML = "X";
       }
       else if(this.boardModel[i].type == "computer"){
          this.boardView[i].style.fontSize = "large";
          this.boardView[i].style.fontWeight="bold";
           this.boardView[i].style.color = "black";
-         this.boardView[i].value = "O";
+         this.boardView[i].innerHTML = "O";
       }
       else if(this.boardModel[i].type == "blank"){
          
@@ -121,7 +121,7 @@ class Controller{
            if(score<0){
            this.boardView[i].style.color = "red";
            }
-           this.boardView[i].value = Number(score).toString();
+           this.boardView[i].innerHTML = Number(score).toString();
          
       
      
