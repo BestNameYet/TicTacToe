@@ -193,7 +193,7 @@ class Controller{
       else {
          
          this.player = new Player(this.player.opponentType);
-         //this.updateTurnInfoView();
+         this.updateTurnInfoView();
       }
     
     this.updateBoardView();
@@ -205,9 +205,9 @@ class Controller{
     this.turnView.style.color = "black";
     
      if(this.player.type == "human"){
-       this.turnView.innerHTML = "X's turn";
+       //this.turnView.innerHTML = "X's turn";
      }
-     else this.turnView.innerHTML = "O's turn";
+     //else this.turnView.innerHTML = "O's turn";
   }
   updateWinnerView(){
      if(this.player.type == "human"){
@@ -223,7 +223,7 @@ class Controller{
 
   newGameView(){
     this.updateBoardView();
-    //this.updateTurnInfoView();
+    this.updateTurnInfoView();
     
   }
   
