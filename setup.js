@@ -94,6 +94,7 @@ class Controller{
     this.player = new Player("human");
     this.gameOver = false;
     this.move = 0;
+    this.newGameView();
   }
 
   updateBoardView(){
@@ -108,7 +109,7 @@ class Controller{
          
          var boardWithNewMove = Array.from(this.boardModel);
            boardWithNewMove[i] = this.player;
-           let score = -1*minimax(boardWithNewMove, new Player(this.player.opponentType));
+           let score = -minimax(boardWithNewMove, new Player(this.player.opponentType));
            boardView[i].value = Number(score).toString();
          
       
@@ -128,7 +129,6 @@ class Controller{
    if(valid){
       this.boardModel[position] = this.player;
       this.move = this.move+1;
-      this.updateBoardView();
       if(this.player.getWinner(board)){
          this.updateWinnerView();
          this.gameOver = true;
@@ -140,6 +140,7 @@ class Controller{
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
+          this.updateBoardView();
          if(this.player.type == "computer"){
           this.computerTurn();
          }
@@ -167,7 +168,7 @@ class Controller{
     }
     this.boardModel[move] = this.player;
     this.move = this.move+1;
-    this.updateBoardView();
+    
     if(this.player.getWinner(board)){
          this.updateWinnerView();
          this.gameOver = true;
@@ -179,6 +180,7 @@ class Controller{
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
+         this.updateBoardView();
       }
     }
 
