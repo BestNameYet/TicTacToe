@@ -98,8 +98,8 @@ class TTTModel{
 
 class Player{
   type = null;
-  name = "";
-  mark = "";
+  name = null;
+  mark = null;
   
   constructor(type, name, mark){
     this.type = type;
@@ -124,9 +124,19 @@ class Player{
 }
 
   class Board{
-    const positions;
+    positions = new Array(9);
     
-    construct(type
+    constructor(){
+    }
+
+    set position(position, player){
+    }
+
+    get positions(){
+    }
+
+    resetBoard(){
+    }
   
   }
 
