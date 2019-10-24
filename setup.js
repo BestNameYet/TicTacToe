@@ -200,9 +200,10 @@ class Controller{
     }
 
   updateTurnInfoView(){
-    this.turnView.style.fontSize = "x-large";
+    this.turnView.style.fontSize = "50px";
     this.turnView.style.fontWeight="bold";
     this.turnView.style.color = "black";
+    
      if(this.player.type == "human"){
        this.turnView.innerHTML = "X's turn";
      }
