@@ -193,6 +193,9 @@ class Controller{
       else {
          
          this.player = new Player(this.player.opponentType);
+         if(this.player.type == "computer"){
+          this.computerTurn();
+         }
          this.updateTurnInfoView();
       }
     
@@ -207,7 +210,7 @@ class Controller{
      if(this.player.type == "human"){
        this.turnView.innerHTML = "Minimax Tic-Tac-Toe";
      }
-     //else this.turnView.innerHTML = "Minimax Tic-Tac-Toe";
+     else this.turnView.innerHTML = "Minimax Tic-Tac-Toe";
   }
   updateWinnerView(){
      if(this.player.type == "human"){
@@ -231,7 +234,6 @@ class Controller{
     this.gameOver = false;
     this.move = 0;
     this.player = new Player("human");
-    
     this.newGameModel();
     this.newGameView();
   }
