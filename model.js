@@ -1,52 +1,141 @@
-class Player{
-  constructor(type){
-    this.type = type;
-    if(type == "human"){
-      this.opponentType = "computer";
-    }
-    if(type == "computer"){
-      this.opponentType = "human";
-    }
-    else
-      this.opponentType = null;
+class TTTModel{
+  
+  xPlayer;
+  oPlayer;
+  board;
+  moveStack;
+  moveCounter;
+  isPaused;
+  isGameOver;
+  hasWon;
+  hasDraw;
+    
+  constructor(){
+    this.xPlayer = new Player();
+    this.oPlayer = new Player();
+    this.board = new Board();
+    this.moveStack = [];
+    this.moveCounter = 0;
+    this.isPaused = true;
+    this.isGameOver = false;
+    this.hasWin = false;
+    this.hasDraw = false;
   }
-  getWinner(board){
-    var booleanBoard = board.map(x => {
-      if(x.type !== this.type){
-        return false;
-      }
-      else return true;
-    });
-    for(i = 0; i<9; i=i+3){
-      if(booleanBoard[i] && booleanBoard[i+1] && booleanBoard[i+2]){
-        return true;
-      }
-    }
-    for(i = 0; i<3; i++){
-      if(booleanBoard[i] && booleanBoard[i+3] && booleanBoard[i+6]){
-        return true;
-      }
-    }
-    if(booleanBoard[8] && booleanBoard[4] && booleanBoard[0]){
-      return true;
-    }
-    if(booleanBoard[6] && booleanBoard[4] && booleanBoard[2]){
-      return true;
-    }
-    return false;
+  
+  
+  makeMove(positionNumber){
+  }
+  
+  undoLastMove(){
+  }
+  
+  resetMatch(){
+  }
+  
+  unpauseMatch(){
+  }
+  
+  pauseMatch(){
+  }
+    
+  get positions(){
+  }
+  
+  set position(position, type){
+  }
+  
+  get moveCount(){
+  }
+  
+  get isValidMove(positionNumber){
+  }
+  
+  get moveMinimaxScore(positionNumber){
+  }
+  
+  get hasGameOver(){
+  }
+  
+  get hasWin(){
+  }
+  
+  get hasDraw(){
+  }
+  
+  get whoWinner(){
+  }
+  
+  get whoLoser(){
   } 
+  
+  get whoPlayingType(){
+  }
+  
+  get whoWaitingType(){
+  }
+  
+  get whoPlayingName(){
+  }
+  
+  get whoWaitingName(){
+  }
+  
+  get xPlayerType(){
+  }
+  
+  set xPlayerType(type){
+  }
+  
+  get oPlayerType(){
+  }
+  
+  set oPlayerType(type){
+  }
+  
+  get xPlayerName(){
+  }
+  
+  set xPlayerName(name){
+  }
+  
+  get oPlayerName(){
+  }
+  
+  set oPlayerName(name){
+  }
 }
 
-const board = (function(){
-  var array = [];
-  var player = new Player("blank");
-  return array.fill(player);
-})();
-
-function minimax(board, player){
+class Player{
+  var type;
+  var name;
+  
+  constructor(type = null, name = ""){
+    this.type = type;
+    this.name = name;
+  }
+  
+  set type(type){
+  
+  }
+  
+  get type(type){
+  
+  }
+  
+  set name(name){
+  }
+  
+  get name(){
+  
+  }
 }
 
-function validMove(board, position){
- return board[position].type == "blank";
-}
+  class Board{
+    const positions;
+    
+    construct(type
+  
+  }
+
+
 
