@@ -205,9 +205,9 @@ class Controller{
     this.turnView.style.color = "black";
     
      if(this.player.type == "human"){
-       //this.turnView.innerHTML = "X's turn";
+       this.turnView.innerHTML = "Move: " + move;
      }
-     //else this.turnView.innerHTML = "O's turn";
+     else this.turnView.innerHTML = "Move: " + move;
   }
   updateWinnerView(){
      if(this.player.type == "human"){
