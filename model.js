@@ -82,15 +82,36 @@ class TTTModel{
     if(this.isValidMove(positionNumber)){
       let boardWithNewMove = Array.of(this.board.positions);
       boardWithNewMove.position(positionNumber, this.whoPlaying);
-      return minimaxScore(boardWithNewMove, this.whoPlaying, this.whoWaiting);
+      return this.minimaxScore(boardWithNewMove, this.whoPlaying, this.whoWaiting);
     }
   }
 
-  minimaxScore(board, decider, opponent){
+  minimaxScore(positions, decider, opponent){
+    if(this.checkForWin(decider)){
+      return 1;
+    }
+    else if(this.checkForWin(opponent)){
+      return -1;
+    }
+    
+    baseScore = -2;
+    
+    for(let i = 0; i < positions.length; i++){
+      if(positions[positionNumber] == null){
+        let newPositions = Array.of(positions);
+        newPositions[i] = opponent;
+        let result = -1*this.minimaxScore(newPositions, opponent, decider);
+        if(result > baseScore){
+          return result;
+        }
+     }  
+    }
     
   }
   
-  checkFor
+  checkForWin(player){
+   
+  }
   
   get hasGameOver(){
     return this.isGameOver;
