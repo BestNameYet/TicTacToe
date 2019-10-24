@@ -16,20 +16,19 @@
         width:100px;
         text-decoration:none;
         text-align: center;
+        position: fixed;
+        top: 100px;
+        left: 100px;
         margin:0 auto;
       }
       .myButton:hover {
         background-color:#f6f6f6;
       }
-      .myButton:active {
-        position:relative;
-        top:100px;
-        left:100px
-      }
+      
     </style>
   </head>
   <body>
-    <div>
+    
     <BUTTON CLASS="myButton" TYPE="BUTTON" ID="8" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
     <BUTTON CLASS="myButton" TYPE="BUTTON" ID="7" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
     <BUTTON CLASS="myButton" TYPE="BUTTON" ID="6" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
@@ -44,7 +43,7 @@
     <BR>
     <P ID="status">X's turn</P>
     <INPUT TYPE="BUTTON" ID="newGame" VALUE="New Game" ONCLICK="controller.newGame();">
-    </div>
+    
     <script type="text/javascript" src="setup.js"></script>
   </body>
 </html>
