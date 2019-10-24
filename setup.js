@@ -140,12 +140,12 @@ class Controller{
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
-          this.updateBoardView();
+          
          if(this.player.type == "computer"){
           this.computerTurn();
          }
       }
-         
+      this.updateBoardView();   
       
    }
    else
@@ -180,8 +180,9 @@ class Controller{
       else {
          this.updateTurnInfoView();
          this.player = new Player(this.player.opponentType);
-         this.updateBoardView();
+         
       }
+    this.updateBoardView();
     }
 
   updateTurnInfoView(){
