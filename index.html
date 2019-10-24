@@ -26,18 +26,23 @@
   <body>
     <div style="text-align:center;">
     <div style="display:inline-block; height: 500px; width: 500px;">
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="8" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="7" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="6" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BR>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="5" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="4" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="3" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BR>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="2" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="1" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BUTTON CLASS="myButton" TYPE="BUTTON" ID="0" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON>
-    <BR>
+    <table>
+      <tr>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="8" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="7" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="6" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+      </tr>
+       <tr>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="5" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="4" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="3" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+      </tr>
+       <tr>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="2" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="1" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+        <td><BUTTON CLASS="myButton" TYPE="BUTTON" ID="0" VALUE="" ONCLICK="controller.updateBoardModel(this);"></BUTTON></td>
+      </tr>
+    </table>
     <P ID="status">X's turn</P>
     <INPUT TYPE="BUTTON" ID="newGame" VALUE="New Game" ONCLICK="controller.newGame();">
      </div>
