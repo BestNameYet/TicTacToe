@@ -198,8 +198,11 @@ class Controller{
     }
 
   updateTurnInfoView(){
+    this.turnView.style.fontSize = "x-large";
+    this.turnView.style.fontWeight="bold";
+    this.turnView.style.color = "black";
      if(this.player.opponentType == "human"){
-        this.turnView.innerHTML = "X's turn";
+       this.turnView.innerHTML = "X's turn";
      }
      else this.turnView.innerHTML = "O's turn";
   }
@@ -211,18 +214,21 @@ class Controller{
   }
   
   updateDrawView(){
+    
     this.turnView.innerHTML = "It's a draw!";
   }
 
   newGameView(){
     this.updateBoardView();
-    this.turnView.innerHTML = "X's turn";
+    this.updateTurnInfoView();
+    
   }
   
   newGame(){
     this.gameOver = false;
     this.move = 0;
     this.player = new Player("human");
+    
     this.newGameModel();
     this.newGameView();
   }
