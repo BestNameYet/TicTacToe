@@ -123,7 +123,20 @@ class Player{
   }
 }
 
-  class Board{
+ class savePoint{
+    board;
+    playing;
+    waiting;
+    
+    constructor(board, playing, waiting){
+      this.board = board;
+      this.playing = playing;
+      this.waiting = waiting;
+    }
+ 
+ }
+
+ class Board{
     positions = new Array(9);
     
     constructor(){
