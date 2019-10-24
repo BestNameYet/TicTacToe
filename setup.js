@@ -102,11 +102,13 @@ class Controller{
       if(this.boardModel[i].type == "human"){
          this.boardView[i].style.fontSize = "large";
          this.boardView[i].style.fontWeight="bold";
+        this.boardView[i].style.color = "black";
          this.boardView[i].value = "X";
       }
       else if(this.boardModel[i].type == "computer"){
          this.boardView[i].style.fontSize = "large";
          this.boardView[i].style.fontWeight="bold";
+          this.boardView[i].style.color = "black";
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
@@ -115,6 +117,7 @@ class Controller{
            boardWithNewMove[i] = this.player;
            let score = -minimax(boardWithNewMove, new Player(this.player.opponentType));
            this.boardView[i].style.fontSize = "medium";
+           this.boardView[i].style.color = "black";
            if(score<0){
            this.boardView[i].style.color = "red";
            }
