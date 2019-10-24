@@ -193,7 +193,7 @@ class Controller{
       else {
          
          this.player = new Player(this.player.opponentType);
-         this.updateTurnInfoView();
+         //this.updateTurnInfoView();
       }
     
     this.updateBoardView();
@@ -223,7 +223,7 @@ class Controller{
 
   newGameView(){
     this.updateBoardView();
-    this.updateTurnInfoView();
+    //this.updateTurnInfoView();
     
   }
   
