@@ -100,9 +100,13 @@ class Controller{
   updateBoardView(){
    for(let i = 0; i<this.boardModel.length; i++){
       if(this.boardModel[i].type == "human"){
+         this.boardView[i].style.fontSize = "large";
+         this.boardView[i].style.fontWeight="bold";
          this.boardView[i].value = "X";
       }
       else if(this.boardModel[i].type == "computer"){
+         this.boardView[i].style.fontSize = "large";
+         this.boardView[i].style.fontWeight="bold";
          this.boardView[i].value = "O";
       }
       else if(this.boardModel[i].type == "blank"){
@@ -110,7 +114,11 @@ class Controller{
          var boardWithNewMove = Array.from(this.boardModel);
            boardWithNewMove[i] = this.player;
            let score = -minimax(boardWithNewMove, new Player(this.player.opponentType));
-           boardView[i].value = Number(score).toString();
+           this.boardView[i].style.fontSize = "medium";
+           if(score<0){
+           this.boardView[i].style.color = "red";
+           }
+           this.boardView[i].value = Number(score).toString();
          
       
      
