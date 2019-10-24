@@ -150,13 +150,14 @@ class Controller{
         this.gameOver = true;
       }  
       else {
-         this.updateTurnInfoView();
+        
          this.player = new Player(this.player.opponentType);
-          
+         this.updateTurnInfoView();
          if(this.player.type == "computer"){
           this.computerTurn();
          }
       }
+      
       this.updateBoardView();   
       
    }
@@ -190,10 +191,11 @@ class Controller{
         this.gameOver = true;
       }  
       else {
-         this.updateTurnInfoView();
-         this.player = new Player(this.player.opponentType);
          
+         this.player = new Player(this.player.opponentType);
+         this.updateTurnInfoView();
       }
+    
     this.updateBoardView();
     }
 
@@ -201,7 +203,7 @@ class Controller{
     this.turnView.style.fontSize = "x-large";
     this.turnView.style.fontWeight="bold";
     this.turnView.style.color = "black";
-     if(this.player.opponentType == "human"){
+     if(this.player == "human"){
        this.turnView.innerHTML = "X's turn";
      }
      else this.turnView.innerHTML = "O's turn";
