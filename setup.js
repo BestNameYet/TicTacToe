@@ -195,7 +195,8 @@ class Controller{
          //this.player = new Player(this.player.opponentType);
         this.player = new Player("computer");
          if(this.player.type == "computer"){
-          setTimeout(this.computerTurn, 5000)
+          const closure = this;
+          setTimeout(this.computerTurn.bind(closure), 5000)
           //this.computerTurn();
          }
          this.updateTurnInfoView();
