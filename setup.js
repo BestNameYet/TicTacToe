@@ -99,13 +99,13 @@ class Controller{
 
   updateBoardView(){
    for(let i = 0; i<this.boardModel.length; i++){
-      if(this.boardModel[i].type == "human"){
+      if(this.move % 2 == 0){
          this.boardView[i].style.fontSize = "50px";
          this.boardView[i].style.fontWeight="bold";
         this.boardView[i].style.color = "black";
          this.boardView[i].innerHTML = "X";
       }
-      else if(this.boardModel[i].type == "computer"){
+      else if(this.move % 2 == 1){
          this.boardView[i].style.fontSize = "50px";
          this.boardView[i].style.fontWeight="bold";
           this.boardView[i].style.color = "black";
