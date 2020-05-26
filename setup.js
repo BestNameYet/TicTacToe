@@ -192,9 +192,11 @@ class Controller{
       }  
       else {
          
-         this.player = new Player(this.player.opponentType);
+         //this.player = new Player(this.player.opponentType);
+        this.player = new Player("computer");
          if(this.player.type == "computer"){
-          this.computerTurn();
+          setTimeout(this.computerTurn, 5000)
+          //this.computerTurn();
          }
          this.updateTurnInfoView();
       }
@@ -227,6 +229,7 @@ class Controller{
   newGameView(){
     this.updateBoardView();
     this.updateTurnInfoView();
+    this.computerTurn();
     
   }
   
