@@ -1,11 +1,11 @@
 class Player{
   constructor(type){
     this.type = type;
-    if(this.type == "human"){
-      this.opponentType = "computer";
+    if(this.type == "computer1"){
+      this.opponentType = "computer2";
     }
-    else if(this.type == "computer"){
-      this.opponentType = "human";
+    else if(this.type == "computer2"){
+      this.opponentType = "computer1";
     }
     else
       this.opponentType = null;
@@ -91,7 +91,7 @@ class Controller{
     this.boardModel = boardModel;
     this.boardView = boardView;
     this.turnView = turnView;
-    this.player = new Player("human");
+    this.player = new Player("computer1");
     this.gameOver = false;
     this.move = 0;
     this.newGameView();
@@ -99,13 +99,13 @@ class Controller{
 
   updateBoardView(){
    for(let i = 0; i<this.boardModel.length; i++){
-      if(this.move % 2 == 0){
+      if(this.boardModel[i].type == "computer1"){
          this.boardView[i].style.fontSize = "50px";
          this.boardView[i].style.fontWeight="bold";
         this.boardView[i].style.color = "black";
          this.boardView[i].innerHTML = "X";
       }
-      else if(this.move % 2 == 1){
+      else if(this.boardModel[i].type == "computer2"){
          this.boardView[i].style.fontSize = "50px";
          this.boardView[i].style.fontWeight="bold";
           this.boardView[i].style.color = "black";
@@ -166,6 +166,16 @@ class Controller{
   }
   
   computerTurn(){
+  	if(this.move == 0){
+    	this.boardModel[Math.floor(Math.random() * 10)] = this.player;
+      this.move = this.move+1;
+      this.player = new Player(this.player.opponentType);
+      const closure = this;
+      setTimeout(this.computerTurn.bind(closure), 1500);
+      this.updateTurnInfoView();
+      this.updateBoardView();
+      return;
+    }
     var move = -1;
     var score = -2;
     for(let i = 0; i < 9; i++){
@@ -189,16 +199,17 @@ class Controller{
       else if(this.move == 9){
         this.updateDrawView();
         this.gameOver = true;
+        const closure = this;
+        setTimeout(this.newGame.bind(closure), 1500);
       }  
       else {
          
          //this.player = new Player(this.player.opponentType);
-        this.player = new Player("computer");
-         if(this.player.type == "computer"){
-          const closure = this;
-          setTimeout(this.computerTurn.bind(closure), 5000)
+        this.player = new Player(this.player.opponentType);
+        const closure = this;
+        setTimeout(this.computerTurn.bind(closure), 1500)
           //this.computerTurn();
-         }
+    
          this.updateTurnInfoView();
       }
     
@@ -225,6 +236,7 @@ class Controller{
   updateDrawView(){
     
     this.turnView.innerHTML = "It's a draw!";
+    
   }
 
   newGameView(){
@@ -237,7 +249,7 @@ class Controller{
   newGame(){
     this.gameOver = false;
     this.move = 0;
-    this.player = new Player("human");
+    this.player = new Player("computer1");
     this.newGameModel();
     this.newGameView();
   }
